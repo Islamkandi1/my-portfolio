@@ -3,7 +3,6 @@ import React from "react";
 import images from "./../../assets/images/images";
 const Projects = () => {
   // my project===============================
-  console.log(innerWidth >= 767);
 
   const projects = [
     {
