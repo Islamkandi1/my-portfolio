@@ -1,5 +1,5 @@
 @import "tailwindcss";
-html{
+html {
   scroll-behavior: smooth;
 }
 @keyframes fadeInUp {
@@ -12,7 +12,9 @@ html{
     transform: translateY(0);
   }
 }
-
+body {
+  background-color: #121928;
+}
 .animate-fade-in-up {
   animation: fadeInUp 0.8s ease-out forwards;
   opacity: 0;
@@ -44,4 +46,3 @@ html{
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-

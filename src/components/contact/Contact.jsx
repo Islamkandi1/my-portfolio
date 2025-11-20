@@ -61,7 +61,7 @@ const Contact = () => {
       <main id="contact" className="min-h-screen  px-4 py-20 dark:bg-[#121928]">
         <Toaster />
         <section className="flex items-center justify-center mb-5">
-          <section className="max-w-2xl mx-auto w-full">
+          <section className="md:max-w-[70%] mx-auto w-full">
             <h2 className="text-4xl md:text-6xl font-bold mb-8 text-center bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               Get In Touch
             </h2>

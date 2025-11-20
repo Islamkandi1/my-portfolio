@@ -1,20 +1,20 @@
 import React from "react";
-import Home from "./components/home/Home";
-import Footer from "./components/footer/Footer";
-import Contact from "./components/contact/Contact";
-import Projects from "./components/projects/Projects";
-import About from "./components/about/About";
-import NavBar from "./components/navbar/NavBar";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import AllProjects from "./components/AllProjects/AllProjects";
+import Parent from "./components/parent/Parent";
 
 const App = () => {
+
+  const router = createBrowserRouter([
+    {index:true,element:<Parent/>},
+    {path:"/AllProjects",element:<AllProjects/>}
+  ])
+
+
+
   return (
     <>
-      <NavBar />
-      <Home />
-      <About />
-      <Projects />
-      <Contact />
-      <Footer />
+      <RouterProvider router={router}/>
     </>
   );
 };

@@ -1,7 +1,8 @@
 import { Menu, Moon, Sun, X } from "lucide-react";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-const NavBar = () => {
+const NavBar = ({ All }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
@@ -37,55 +38,62 @@ const NavBar = () => {
       >
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <section className="flex justify-between items-center h-16">
-            <h2 className="text-3xl font-bold bg-linear-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+            {" "}
+            <Link
+              to="/"
+              className={`text-3xl ${
+                All && "grow text-center"
+              } cursor-pointer  font-bold bg-linear-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent`}
+            >
               Portfolio
-            </h2>
-
+            </Link>
             {/* Desktop Menu */}
-            <section className="hidden md:flex space-x-1">
-              {nav.map((item,index) => (
+            {!All && (
+              <section className="hidden md:flex space-x-1">
+                {nav.map((item, index) => (
+                  <button
+                    onClick={() => scrollToSection(item)}
+                    style={{ transitionDelay: `${index * 50}ms` }}
+                    key={item}
+                    className={`capitalize px-4 font-normal py-2 rounded-lg transition-all duration-300 text-[1.1rem] cursor-pointer ${
+                      activeSection === item
+                        ? " text-[#437BFF]"
+                        : "dark:text-white  dark:hover:text-[#437BFF]"
+                    }`}
+                  >
+                    {item}
+                  </button>
+                ))}
+              </section>
+            )}
+            {!All && (
+              <section className="flex items-center space-x-4 md:hidden">
+                {/* Mobile Menu Button */}
                 <button
-                  onClick={() => scrollToSection(item)}
-                  style={{ transitionDelay: `${index * 50}ms` }}
-                  key={item}
-                  className={`capitalize px-4 font-normal py-2 rounded-lg transition-all duration-300 text-[1.1rem] cursor-pointer ${
-                    activeSection === item
-                      ? " text-[#437BFF]"
-                      : "dark:text-white  dark:hover:text-[#437BFF]"
-                  }`}
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                  className={`md:hidden cursor-pointer p-2 rounded-lg hover:scale-110 transition-all duration-300  text-gray-800 dark:text-white`}
                 >
-                  {item}
+                  <div className="relative w-6 h-6">
+                    <Menu
+                      size={24}
+                      className={`absolute inset-0 transition-all duration-500 ${
+                        isMenuOpen
+                          ? "opacity-0 rotate-180 scale-0"
+                          : "opacity-100 rotate-0 scale-100"
+                      }`}
+                    />
+                    <X
+                      size={24}
+                      className={`absolute inset-0 transition-all duration-500 ${
+                        isMenuOpen
+                          ? "opacity-100 rotate-0 scale-100"
+                          : "opacity-0 -rotate-180 scale-0"
+                      }`}
+                    />
+                  </div>
                 </button>
-              ))}
-            </section>
-
-            <section className="flex items-center space-x-4 md:hidden">
-              {/* Mobile Menu Button */}
-              <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className={`md:hidden cursor-pointer p-2 rounded-lg hover:scale-110 transition-all duration-300  text-gray-800 dark:text-white`}
-              >
-                <div className="relative w-6 h-6">
-                  <Menu
-                    size={24}
-                    className={`absolute inset-0 transition-all duration-500 ${
-                      isMenuOpen
-                        ? "opacity-0 rotate-180 scale-0"
-                        : "opacity-100 rotate-0 scale-100"
-                    }`}
-                  />
-                  <X
-                    size={24}
-                    className={`absolute inset-0 transition-all duration-500 ${
-                      isMenuOpen
-                        ? "opacity-100 rotate-0 scale-100"
-                        : "opacity-0 -rotate-180 scale-0"
-                    }`}
-                  />
-                </div>
-              </button>
-            </section>
-
+              </section>
+            )}
           </section>
         </section>
 

@@ -1,6 +1,7 @@
 import { ExternalLink } from "lucide-react";
 import React from "react";
 import images from "./../../assets/images/images";
+import { Link } from "react-router-dom";
 const Projects = () => {
   // my project===============================
 
@@ -59,22 +60,20 @@ const Projects = () => {
       {/* Projects Section */}
       <main
         id="projects"
-        className="min-h-screen border-b border-gray-200 dark:bg-[#121928] flex items-center justify-center px-4 py-20"
+        className="min-h-screen border-b border-gray-200 dark:bg-[#121928] flex items-center justify-center px-4 py-20 pb-10"
       >
         <section className="max-w-7xl mx-auto w-full">
           <h2 className="text-4xl md:text-6xl font-bold mb-16 text-center bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             My Projects
           </h2>
-
           <section className="grid sm:grid-cols-2 lg:grid-cols-3  gap-8">
             {projects.map((project, index) => (
-              <a
-                href={project.link}
+              <section
                 key={index}
                  target="_blank"
                 className="group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3"
               >
-                <div className="relative overflow-hidden h-56">
+                <section className="relative overflow-hidden h-56">
                   <img
                     src={project.image}
                     alt={project.title}
@@ -90,7 +89,7 @@ const Projects = () => {
                       <ExternalLink size={16} />
                     </a>
                   </div>
-                </div>
+                </section>
 
                 <section className="p-6">
                   <h3 className="text-2xl dark:text-white font-bold mb-3 group-hover:text-blue-500 transition-colors">
@@ -110,8 +109,11 @@ const Projects = () => {
                     ))}
                   </section>
                 </section>
-              </a>
+              </section>
             ))}
+          </section>
+          <section className="flex justify-center">
+          <Link to="/AllProjects" className="text-white   px-8 py-4 cursor-pointer mt-7  capitalize bg-linear-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl font-medium">see more</Link>
           </section>
         </section>
       </main>
