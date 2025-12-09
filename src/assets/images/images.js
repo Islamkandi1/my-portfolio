@@ -6,7 +6,9 @@ import plant from "./plant.png";
 import bezel from "./bezel.png";
 import Estate from "./Estate.png";
 import games from "./games.png";
+import shop from "./shop.co.png";
 import software from "./software.png";
+import dashboard from "./dashboard.png";
 
 const images = {
   Ecommerce,
@@ -17,6 +19,8 @@ const images = {
   bezel,
   Estate,
   games,
-  software
+  software,
+  shop,
+  dashboard
 };
 export default images;

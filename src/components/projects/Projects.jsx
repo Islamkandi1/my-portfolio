@@ -1,60 +1,10 @@
 import { ExternalLink } from "lucide-react";
 import React from "react";
-import images from "./../../assets/images/images";
 import { Link } from "react-router-dom";
+import projects from "../projectArray";
 const Projects = () => {
   // my project===============================
 
-  const projects = [
-    {
-      title: "E-Commerce Platform",
-      description:
-        "Built a modern e-commerce web app with Next.js, Tailwind CSS, typescript and shadcn/ui, delivering a   clean, responsive, and user-friendly interface across all devices",
-      image: images.Ecommerce,
-      tags: ["Next", "Typescript", "tailwind", "Shadcn", "Axios"],
-      link: "https://fresh-cart-liart-kappa.vercel.app/",
-    },
-    {
-      title: "Facebook Clone",
-      description:
-        "Responsive design using Tailwind CSS and DaisyUI, developed with React.js. Includes Dark/Light mode that automatically adapts to the userʼs system preferences or can be manually switched, with persistence using localStorage.",
-      image: images.facebook,
-      tags: ["React", "tailwind", "daisyui", " Tanstack Query", "Axios"],
-      link: "https://face-book-social-app.vercel.app/",
-    },
-    {
-      title: "Furni",
-      description:
-        "Developed an e-commerce app with html ,css and Bootstrap as a framework for designnig, and FontAwesome for a responsive and visually appealing user interface",
-      image: images.furni,
-      tags: ["html", "css", "bootstrap"],
-      link: " https://islamkandi1.github.io/furni/",
-    },
-    {
-      title: "Netflix Clone",
-      description:
-        " Built with React.js, Tailwind CSS, and MUI. Fully responsive with modern UI components and cinematic design, Axios for fetching movie/series data and TanStack  Query for caching",
-      image: images.Netfiex,
-      tags: ["React", "Tailwind", "Mui", "Tanstack Query", "Axios"],
-      link: "https://movies-series-three.vercel.app/",
-    },
-    {
-      title: "Plant store",
-      description:
-        "A responsive plant store using Html, css and Bootstrap , It showcases a modern layout with smooth navigation and a professional look. ",
-      image: images.plant,
-      tags: ["Html5", "Css3", "Bootstrap"],
-      link: "https://islamkandi1.github.io/solplant/",
-    },
-    {
-      title: "Personal Page",
-      description:
-        "Built a modern and fully responsive website using HTML, CSS, and Bootstrap, featuring a clean and elegant design optimized for all devices.",
-      image: images.bezel,
-      tags: ["html", "css", "bootstrap"],
-      link: "https://islamkandi1.github.io/bezel/",
-    },
-  ];
   return (
     <>
       {/* Projects Section */}
@@ -67,7 +17,7 @@ const Projects = () => {
             My Projects
           </h2>
           <section className="grid sm:grid-cols-2 lg:grid-cols-3  gap-8">
-            {projects.map((project, index) => (
+            {projects.slice(0,6).map((project, index) => (
               <section
                 key={index}
                  target="_blank"
